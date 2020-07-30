@@ -105,30 +105,175 @@ public class helloworld {
 		
 //		1-100中前50个素数
 		System.out.println("输出1-100中前50个素数");
-		int jishu = 0;
-		int shu = 2;
-		do
+//		int jishu = 0;
+//		int shu = 2;
+//		do
+//		{
+//			boolean is_prime = true;
+//			for ( int i=2; i<Math.sqrt(shu); i++)
+//			{
+//				if(shu % i == 0)
+//				{
+//					is_prime = false;
+//					//System.out.println("有因子"+i);
+//					break;
+//				}
+//			}
+//			if( is_prime )
+//			{
+//				System.out.print(shu + " ");
+//				jishu++;
+//			}
+//			shu++;
+//		}while(jishu<50);
+
+//		检查每个数都是否为当前查到的所有素数的倍数,若不是则为素数
+//		int[] primes = new int[50];
+//		primes[0] = 2;
+//		int cnt = 1;//既是指向primes数组中的cnt号元素,也指数组中一共有多少个元素
+//		MAIN_LOOP:
+//		for (int x = 3; cnt<50; x++)
+//		{
+//			for (int i=0; i<cnt; i++)
+//			{
+//				if (x % primes[i] == 0)
+//				{	
+//					continue MAIN_LOOP;
+//				}
+//			}
+//			primes[cnt++] = x;
+//		}
+//		for(int k : primes)
+//		{
+//			System.out.print(k + " ");
+//		}
+		
+//		从数列中除去所有当前获得的素数的倍数
+//		n = in.nextInt();
+		boolean is_prime[] = new boolean[100/* n */];
+		for (int i=0; i<is_prime.length; i++)
 		{
-			int is_prime = 1;
-			for ( int i=2; i<shu; i++)
+			is_prime[i] = true;
+		}
+		for	(int i=2; i<is_prime.length; i++)
+		{
+			if( is_prime[i] )
 			{
-				if(shu % i == 0)
+				for(int k = 2; i*k<is_prime.length ;k++)
 				{
-					is_prime = 0;
-//					System.out.println("有因子"+i);
-					break;
+					is_prime[i*k] = false;
 				}
 			}
-			if(is_prime == 1)
+		}
+		for (int i=2; i<is_prime.length; i++)
+		{
+			if (is_prime[i])
 			{
-				System.out.print(shu + " ");
-				jishu++;
+				System.out.print(i+" ");
 			}
-			shu++;
-		}while(jishu<50);
+		}
+		
+		
+//		数组 -- 计算平均数并输出大于平均数的数字
+		int[] nums = new int[100];
+		System.out.println(nums.length);
+		int x = 0;
+		double sum = 0;
+		int cnt = 0;
+		while (x != -1)
+		{
+			nums[cnt] = x;
+			sum += x;
+			cnt ++;
+			x = in.nextInt();
+		}
+		if ( cnt>0 )
+		{
+			double average = sum/cnt;
+			for(int i=0;i<cnt;i++)
+			{
+				if( nums[i] > average )
+				{
+					System.out.println(nums[i]);
+				}
+			}
+			System.out.println(sum/cnt);
+		}
+		
+//		输入小于10的整数,不限输入次数,判断每个数字输入了多少次
+		int indx_x;
+		int[] numbs = new int[10];
+		indx_x = in.nextInt();
+		while (indx_x != -1)
+		{
+			if (indx_x>=0 && indx_x<=9)
+			{
+				numbs[indx_x]++;
+			}
+			indx_x = in.nextInt();
+		}
+		for (int i=0; i<numbs.length; i++)
+		{
+			System.out.println(i+":"+numbs[i]);
+		}
+		
+//		二维数组
+		int[][] ma = new int[3][5]; // 三行五列的二维数组
+		int[][] ma1 = {
+				{1,2,3,4},
+				{1,2,3},
+		};
+		System.out.println(ma);
+		System.out.println(ma1);
+	//井字棋
+		final int SIZE = 3;
+		int[][] board = new int[SIZE][SIZE];
+//		boolean gotResult = false;
+//		int numOFX = 0;
+//		int numOFO = 0;
+		System.out.println("You win");
+		//读入矩阵
+		for(int i=0; i<board.length; i++)
+		{
+			for (int j=0; j<board[i].length; j++)
+			{
+				board[i][j] = in.nextInt();
+			}
+		}
+		System.out.println(board);
+		//检查行
+		for (int i=0; i<board.length; i++)
+		{
+			if(board[i][0] == board[i][1] && board[i][0] == board[i][2])
+			{
+				System.out.println( board[i][0] + " win" );
+				break;
+			}
+			//检查列
+			if(board[0][i] == board[1][i] && board[0][i] == board[2][i])
+			{
+				System.out.println( board[0][i] + " win" );
+				break;
+			}
+			if(board[0][0] == board[1][1] && board[0][0] == board[2][2])
+			{
+				System.out.println( board[0][0] + " win" );
+				break;
+			}
+		}
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //		解决"in" is never closed问题
 		in.close();
 	}
 }
-
