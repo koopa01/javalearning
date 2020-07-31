@@ -261,14 +261,37 @@ public class helloworld {
 				break;
 			}
 		}
-		
+		 
 
+//		字符类型
+//		char c = 'A';//char类型仅为一个字符，所以可以用单引号，多个字符需要使用String类型，以及双引号
+//		char c = '\u0041';//unicode编码
+//		char c = 65;
+		char c = 'A';//大写A 换成小写a 放到e里
+		char e = (char)(c + 'a' - 'A');//单个字符可以比较大小
+		c++;
+		int i = 'Z' - 'a';
+		char d = '汉';
+		System.out.println(c);//输出B
+		System.out.println(i);
+		System.out.println(d-1);//27720 unicode表中的‘汉’前一个字的编码
+		System.out.println((int)c);//A的ASCII码
+		System.out.println(e);
+		//\b 回退一格，\t 下一个表格位， \n 换行， \r 回车，\" 双引号 \\反斜杠本身
 		
+//		包裹类型 - 包裹工具
+//		boolean - Boolean
+//		char - Character
+//		int - Integer
+//		double Double
+		int f = 10;//4字节，32bit
+		Integer k = 29;
+		f = k;
+		System.out.println(Integer.MAX_VALUE);//[-2^31 , 2^31 - 1]
+		System.out.println(Character.isDigit('1'));
+		System.out.println(Character.toLowerCase('A'));
 		
-		
-		
-		
-		
+//		Math类
 		
 		
 		
