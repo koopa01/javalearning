@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class helloworld {
 
+//	函数
+	public static void f()
+	{
+		System.out.println("f()");
+//		函数最好不要有多个出口——return
+	}
+	
+	
 	public static void main(String[] args) {
 		System.out.println("Hello world!你好");
 		Scanner in = new Scanner(System.in);
@@ -262,7 +270,6 @@ public class helloworld {
 			}
 		}
 		 
-
 //		字符类型
 //		char c = 'A';//char类型仅为一个字符，所以可以用单引号，多个字符需要使用String类型，以及双引号
 //		char c = '\u0041';//unicode编码
@@ -292,9 +299,37 @@ public class helloworld {
 		System.out.println(Character.toLowerCase('A'));
 		
 //		Math类
+		System.out.println(Math.abs(-10));
+		System.out.println(Math.round(10.345));//四舍五入
+		System.out.println(Math.random()*100);//0-100间的一个随机数
+		System.out.println(Math.pow(2, 3));//2的3次方，返回浮点数，2和3都可以是浮点数
 		
+//		字符串String 1.首字母大写表示其为一个类，但不一定是包裹类型 2.字符串类型不可修改，方法都是在创建新字符串之上修改
+		String s1  = new String("我是字符串123454321");//完整过程，由于String为一个类，所以需要用“我是字符串”初始化这个类，并创建管理变量s，并由s管理这个对象
+		String t1 = "我也是字符串";
+		System.out.println(s1+12+24);//"我是字符串1224" 字符串类遇到int会转换int至字符串
+		in.next();//读入一个单词，单词标志是空格或tab或换行
+		in.nextLine();//读入一整行
+		//注意：
+		if(s1 == "bye") {} //比较是否指向同一个对象
+		if(t1.equals("bye")) {}//比较内容是否相同
+		s1.compareTo("abc");//比较两个字符串大小结果为负/正/0
+		s1.compareToIgnoreCase("abc");//不区分大小写的比较两个字符串大小
+		s1.charAt(0);//字符串中的某个元素，用索引
+		s1.substring(2,4);//切片 s1[2:4]
+		s1.indexOf("我");//寻找“我”所在字符串中的位置，-1表示不存在
+		s1.indexOf("我",2);//从2号位置开始找“我”
+		int loc = s1.indexOf("3");
+		s1.indexOf("3",loc+1);//如果字符串中两次出现“3”，找到第二次出现的“3”
+		s1.lastIndexOf("3");
+		s1.startsWith("我是");
+		s1.endsWith("321");
+		s1.trim();
+		s1.replace("串", "结构");
+//		switch case("This") 只在1.6以上版本中允许使用
 		
-		
+//		函数
+		f();
 		
 //		解决"in" is never closed问题
 		in.close();
